@@ -1,14 +1,18 @@
 import { useContext } from 'react';
+import { Link } from 'react-router-dom'
 import UserContext from '../../contexts/UserContext'
+
 
 const Nav = () => {
     const user = useContext(UserContext)
     console.log(user)
 
+    // Below we will use Link from react router to replace all of our Anchor tags. We replace the href from <a> to "to"
+
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
-                <a className="navbar-brand" href="#">Pokepedia</a>
+                <Link className="navbar-brand" to="/">Pokepedia</Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -16,10 +20,10 @@ const Nav = () => {
 
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <a className="nav-link active" aria-current="page" href="#">Pokemon List</a>
+                            <Link className="nav-link active" aria-current="page" to="pokemon/list">Pokemon List</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Login</a>
+                            <Link className="nav-link" to="login">Login</Link>
                         </li>                        
                     </ul>
 
