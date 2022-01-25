@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import './styles.css'
 
-const Login = () => {
+const Login = ({ setUser }) => {
     // Once the user clicks submit, we will mimic logging in and conditionally render our nav bar.
 
     const [username, setUsername] = useState('')
@@ -13,9 +13,10 @@ const Login = () => {
 
     const handleSubmit = e => {
         e.preventDefault()
+        setUser(username)
     }
 
-    console.log('state in login', username)
+    // console.log('props', setUser())
 
     return (
         <form className='mx-auto border p-2 m-2' id="login-form" onSubmit={handleSubmit}>
