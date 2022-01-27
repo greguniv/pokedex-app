@@ -61,7 +61,7 @@ const App = () => {
           <Route path='/' element={<Home />}/>
           <Route path='login' element={<Login setUser={setUser} />} />
           <Route path='pokemon/list' element={<PokemonList pokeList={pokeList} itemsPerPage={8} addToFavorites={addToFavorites} />} />
-          <Route path='favorites' element={<Favorites />} />
+          <Route path='favorites' element={<Favorites favorites={favorites}/>} />
         </Routes>
 
       </UserContext.Provider>
