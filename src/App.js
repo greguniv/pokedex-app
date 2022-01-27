@@ -8,6 +8,7 @@ import Nav from './components/Nav'
 import Login from './pages/Login'
 import Home from './pages/Home';
 import PokemonList from './pages/PokemonList';
+import Favorites from './pages/Favorites';
 // Contexts
 import UserContext from './contexts/UserContext'
 
@@ -19,6 +20,7 @@ const App = () => {
   // We will pass on our user to all of App's children via the Provider value prop
   const [user, setUser] = useState('')
   const [pokeList, setPokeList] = useState([])
+  const [favorites, setFavorites] = useState([])
 
   useEffect(() => {
     fetchPokemon()
@@ -36,6 +38,15 @@ const App = () => {
     }
   }
 
+  const addToFavorites = (pokemon) => {
+    // When we click Like inside Pokemon List, trigger this Function to update our State; send clicked Pokemon back to App
+    // App will then pass our State as props to Favorites
+
+
+    console.log('we added', pokemon)
+    setFavorites([...favorites, pokemon])
+  }
+
     // console.log('pokelist', pokeList)
 
   return (
@@ -49,7 +60,8 @@ const App = () => {
         <Routes>
           <Route path='/' element={<Home />}/>
           <Route path='login' element={<Login setUser={setUser} />} />
-          <Route path='pokemon/list' element={<PokemonList pokeList={pokeList} itemsPerPage={8}/>} />
+          <Route path='pokemon/list' element={<PokemonList pokeList={pokeList} itemsPerPage={8} addToFavorites={addToFavorites} />} />
+          <Route path='favorites' element={<Favorites />} />
         </Routes>
 
       </UserContext.Provider>
