@@ -1,0 +1,14 @@
+.pokemon-container {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.poke-card {
+    width: 15rem;
+}
+
+.card-title {
+    text-transform: capitalize;
+}
